@@ -1,4 +1,4 @@
-abstract class BaseUnit {
+export abstract class BaseUnit {
     public xPos: number;
     public yPos: number;
 

@@ -1,5 +1,6 @@
+import {BaseUnit} from "./BaseUnit";
 
-class Stalker extends BaseUnit {
+export class Stalker extends BaseUnit {
 
     private static radius:number = 1;
 

@@ -1,10 +1,13 @@
+import {BaseUnit} from "./Units/BaseUnit";
+import {Stalker} from "./Units/Stalker";
 
 
-class Map {
+export class Map {
     private units:BaseUnit[] = [];
     private context: CanvasRenderingContext2D;
 
     constructor(context: CanvasRenderingContext2D){
+        console.log('creating map');
         this.context = context;
         let unit = new Stalker();
         unit.xPos = 100;
