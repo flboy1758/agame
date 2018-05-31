@@ -4,6 +4,8 @@
   "description": "agame",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build && node runner.js",
+    "build": "tsc --outDir public/scripts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,5 +14,13 @@
   },
   "author": "getkar",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/getka/agame#readme"
+  "homepage": "https://bitbucket.org/getka/agame#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/node": "^10.1.4",
+    "typescript": "^2.9.1"
+  }
 }
