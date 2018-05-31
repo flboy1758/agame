@@ -6,13 +6,14 @@ export default class GameMain{
 
     constructor(){}
 
-    gameLoop(): void{
+    gameLoop(self:GameMain): void{
         console.log('loop');
-        requestAnimationFrame(this.gameLoop);
+        //requestAnimationFrame(self.gameLoop);
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, 1280, 720);
 
         this.map.drawUnits();
+        requestAnimationFrame(()=> self.gameLoop(self));
 
     }
 
@@ -23,7 +24,8 @@ export default class GameMain{
 
         self.map = new GameMap(this.ctx);
 
-        self.gameLoop();
+        requestAnimationFrame(()=> self.gameLoop(self));
+
     }
 }
 

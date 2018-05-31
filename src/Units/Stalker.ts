@@ -11,6 +11,8 @@ export class Stalker extends BaseUnit {
     }
 
     draw(context: CanvasRenderingContext2D): void {
+        this.xPos += 1;
+        this.yPos +=1;
         context.beginPath();
         context.strokeStyle = "red";
         context.lineWidth = 2;
