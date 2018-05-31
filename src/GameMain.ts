@@ -1,4 +1,4 @@
-import {Map} from "./Map";
+import {GameMap} from "./GameMap";
 
 class GameMain{
     private canvas: HTMLCanvasElement;
@@ -14,12 +14,12 @@ class GameMain{
 
     }
 
-    private map:Map;
+    private map:GameMap;
     public main():void {
         this.canvas = <HTMLCanvasElement>document.getElementById('game');
         this.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
-        this.map = new Map(this.ctx);
+        this.map = new GameMap(this.ctx);
 
         this.gameLoop();
     }
