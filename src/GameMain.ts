@@ -8,7 +8,7 @@ export default class GameMain{
 
     gameLoop(): void{
         console.log('loop');
-        requestAnimationFrame(this.gameLoop);
+        requestAnimationFrame(()=>{this.gameLoop()});
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, 1280, 720);
 
@@ -17,18 +17,18 @@ export default class GameMain{
     }
 
     private map:GameMap;
-    public main(self:GameMain):void {
-        self.canvas = <HTMLCanvasElement>document.getElementById('game');
-        self.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
+    public main():void {
+        this.canvas = <HTMLCanvasElement>document.getElementById('game');
+        this.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
-        self.map = new GameMap(this.ctx);
+        this.map = new GameMap(this.ctx);
 
-        self.gameLoop();
+        this.gameLoop();
     }
 }
 
 let game:GameMain = new GameMain();
 window.onload = ()=>{
-    game.main(game);
+    game.main();
 };
 
