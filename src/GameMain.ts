@@ -4,6 +4,8 @@ export default class GameMain{
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
 
+    constructor(){}
+
     gameLoop(): void{
         console.log('loop');
         requestAnimationFrame(this.gameLoop);
@@ -26,4 +28,7 @@ export default class GameMain{
 }
 
 let game:GameMain = new GameMain();
-window.onload = game.main;
+window.onload = ()=>{
+    game.main();
+};
+
