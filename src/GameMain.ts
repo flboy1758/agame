@@ -17,7 +17,7 @@ class GameMain{
     private map:Map;
     public main():void {
         this.canvas = <HTMLCanvasElement>document.getElementById('game');
-        this.ctx = this.canvas.getContext("2d");
+        this.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
         this.map = new Map(this.ctx);
 
