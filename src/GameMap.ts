@@ -9,10 +9,9 @@ export class GameMap {
     constructor(context: CanvasRenderingContext2D){
         console.log('creating map');
         this.context = context;
-        let unit = new Stalker();
-        unit.xPos = 100;
-        unit.yPos = 100;
+    }
 
+    addUnit(unit:BaseUnit){
         this.units.push(unit);
     }
 
