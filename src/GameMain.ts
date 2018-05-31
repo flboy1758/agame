@@ -1,6 +1,6 @@
 import {GameMap} from "./GameMap";
 
-class GameMain{
+export default class GameMain{
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
 
