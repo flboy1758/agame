@@ -17,18 +17,18 @@ export default class GameMain{
     }
 
     private map:GameMap;
-    public main():void {
-        this.canvas = <HTMLCanvasElement>document.getElementById('game');
-        this.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
+    public main(self:GameMain):void {
+        self.canvas = <HTMLCanvasElement>document.getElementById('game');
+        self.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
-        this.map = new GameMap(this.ctx);
+        self.map = new GameMap(this.ctx);
 
-        this.gameLoop();
+        self.gameLoop();
     }
 }
 
 let game:GameMain = new GameMain();
 window.onload = ()=>{
-    game.main();
+    game.main(game);
 };
 

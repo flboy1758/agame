@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node runner.js",
+    "start-watch": "nodemon --watch src --ignore public/ -e ts --exec \"npm start\"",
     "build": "tsc && browserify src/GameMain.js -o public/scripts/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
     "@types/express": "^4.11.1",
     "@types/node": "^10.1.4",
     "browserify": "^16.2.2",
+    "nodemon": "^1.17.5",
     "tslint": "^5.10.0",
     "typescript": "^2.9.1"
   }
