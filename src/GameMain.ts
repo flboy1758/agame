@@ -1,35 +1,34 @@
 import {GameMap} from "./GameMap";
 import {Stalker} from "./Units/Stalker";
 
-export default class GameMain{
+class GameMain {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
 
     constructor(){}
 
-    gameLoop(self:GameMain): void{
-        // console.log('loop');
-        //requestAnimationFrame(self.gameLoop);
+    gameLoop(): void{
+        console.log('loop');
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(0, 0, 1280, 720);
 
         this.map.drawUnits();
-        requestAnimationFrame(()=> self.gameLoop(self));
+        requestAnimationFrame(()=> this.gameLoop());
 
     }
 
     private map:GameMap;
-    public main(self:GameMain):void {
-        self.canvas = <HTMLCanvasElement>document.getElementById('game');
-        self.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
-        self.map = new GameMap(this.ctx);
+    public main():void {
+        this.canvas = <HTMLCanvasElement>document.getElementById('game');
+        this.ctx = this.canvas.getContext("2d")||(new CanvasRenderingContext2D());
 
         let unit = new Stalker();
         unit.xPos = 100;
         unit.yPos = 100;
 
-        self.map.addUnit(unit);
+        this.map = new GameMap(this.ctx);
+        this.map.addUnit(unit);
 
         document.addEventListener('keydown', (e: any) =>{
             //You have yout key code here
@@ -51,13 +50,13 @@ export default class GameMain{
 
 
 
-        requestAnimationFrame(()=> self.gameLoop(self));
+        requestAnimationFrame(()=> this.gameLoop());
 
     }
 }
 
 let game:GameMain = new GameMain();
 window.onload = ()=>{
-    game.main(game);
+    game.main();
 };
 
